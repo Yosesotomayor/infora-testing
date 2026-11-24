@@ -1,8 +1,11 @@
 """Infora · Demo — tu Excel de hoy vs. lo que te entrega Infora."""
 
+from pathlib import Path
+
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+from PIL import Image
 
 from demo.clean import clean
 from demo.data import TODAY, make_raw
@@ -15,7 +18,9 @@ AZUL = "#1E3A5F"
 VERDE = "#2E8B57"
 MESES_ES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 
-st.set_page_config(page_title="Infora · Demo", page_icon="📊", layout="wide")
+FAVICON = Image.open(Path(__file__).parent / "assets" / "favicon.png")
+
+st.set_page_config(page_title="Infora · Demo", page_icon=FAVICON, layout="wide")
 
 
 def dinero(x: float) -> str:
